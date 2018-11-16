@@ -7,7 +7,7 @@ import {VError} from 'verror'
 import IronPiIPCCodec, {UNIX_SOCKET_PATH} from '@jcoreio/iron-pi-ipc-codec'
 import type {DeviceInputStates, HardwareInfo, MessageFromDriver, SetLEDs, SetOutputs} from '@jcoreio/iron-pi-ipc-codec'
 
-export type {DeviceModel, DetectedDevice} from '@jcoreio/iron-pi-ipc-codec'
+export type {DetectedDevice, DeviceInputStates, DeviceModel, HardwareInfo, SetLEDs, SetOutputs} from '@jcoreio/iron-pi-ipc-codec'
 
 const log = logger('iron-pi-device-client')
 
@@ -25,6 +25,7 @@ export type IronPiDeviceClientEmittedEvents = {
 export default class IronPiDeviceClient extends EventEmitter<IronPiDeviceClientEmittedEvents> {
 
   _ipcClient: Object
+  _hardwareInfo: ?HardwareInfo
 
   constructor() {
     super()
@@ -35,6 +36,10 @@ export default class IronPiDeviceClient extends EventEmitter<IronPiDeviceClientE
 
   start() {
     this._ipcClient.start()
+  }
+
+  hardwareInfo(): ?HardwareInfo {
+    return this._hardwareInfo
   }
 
   setOutputs(setOutputs: SetOutputs) {
@@ -51,6 +56,7 @@ export default class IronPiDeviceClient extends EventEmitter<IronPiDeviceClientE
       const msg: MessageFromDriver = codec.decodeMessageFromDriver(buf)
       const {hardwareInfo, deviceInputStates} = msg
       if (hardwareInfo) {
+        this._hardwareInfo = hardwareInfo
         this.emit(EVENT_DEVICES_DETECTED, hardwareInfo)
       }
       if (deviceInputStates) {
