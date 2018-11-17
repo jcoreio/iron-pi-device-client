@@ -7,7 +7,7 @@ import {VError} from 'verror'
 import IronPiIPCCodec, {UNIX_SOCKET_PATH} from '@jcoreio/iron-pi-ipc-codec'
 import type {DeviceInputStates, HardwareInfo, MessageFromDriver, SetLEDs, SetOutputs} from '@jcoreio/iron-pi-ipc-codec'
 
-export type {DetectedDevice, DeviceInputStates, DeviceModel, HardwareInfo, SetLEDs, SetOutputs} from '@jcoreio/iron-pi-ipc-codec'
+export type {DetectedDevice, DeviceInputState, DeviceInputStates, DeviceModel, DeviceOutputState, HardwareInfo, LEDCommand, SetLEDs, SetOutputs} from '@jcoreio/iron-pi-ipc-codec'
 
 const log = logger('iron-pi-device-client')
 
