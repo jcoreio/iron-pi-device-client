@@ -22,7 +22,7 @@ export type IronPiDeviceClientEmittedEvents = {
   error: [Error],
 }
 
-export default class IronPiDeviceClient extends EventEmitter<IronPiDeviceClientEmittedEvents> {
+export class IronPiDeviceClient extends EventEmitter<IronPiDeviceClientEmittedEvents> {
 
   _ipcClient: Object
   _hardwareInfo: ?HardwareInfo
@@ -71,3 +71,5 @@ export default class IronPiDeviceClient extends EventEmitter<IronPiDeviceClientE
     }
   }
 }
+
+export default IronPiDeviceClient
