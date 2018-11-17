@@ -44,13 +44,13 @@ export class IronPiDeviceClient extends EventEmitter<IronPiDeviceClientEmittedEv
 
   setOutputs(setOutputs: SetOutputs) {
     const {outputs} = setOutputs
-    if (!Array.isArray(outputs) || outputs.find(out => typeof out !== 'boolean')) throw Error(`outputs property must be an array of boolean values`)
+    if (!Array.isArray(outputs) || outputs.find(out => typeof out !== 'object')) throw Error('outputs property must be an array of Objects with the format {address: number, levels: Array<boolean>}')
     this._ipcClient.send(codec.encodeSetOutputs(setOutputs))
   }
 
   setLEDs(setLEDs: SetLEDs) {
     const {leds} = setLEDs
-    if (!Array.isArray(leds) || leds.find(cmd => typeof cmd !== 'object')) throw Error(`leds property must be an array of Objects with the format {address: number, colors: string, onTime: number, offTime: number, idleTime: number}`)
+    if (!Array.isArray(leds) || leds.find(cmd => typeof cmd !== 'object')) throw Error('leds property must be an array of Objects with the format {address: number, colors: string, onTime: number, offTime: number, idleTime: number}')
     this._ipcClient.send(codec.encodeSetLEDs(setLEDs))
   }
 
