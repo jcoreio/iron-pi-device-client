@@ -100,7 +100,7 @@
     "semantic-release": "^15.10.6"
   },
   "dependencies": {
-    "@jcoreio/iron-pi-ipc-codec": "^3.0.0",
+    "@jcoreio/iron-pi-ipc-codec": "^3.1.0",
     "@jcoreio/typed-event-emitter": "^1.0.0",
     "log4jcore": "^2.0.3",
     "socket-ipc": "^1.0.0",
