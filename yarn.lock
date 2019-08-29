@@ -124,10 +124,10 @@
   dependencies:
     find-up "^2.1.0"
 
-"@jcoreio/iron-pi-ipc-codec@^3.1.0":
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/@jcoreio/iron-pi-ipc-codec/-/iron-pi-ipc-codec-3.1.0.tgz#f2854350d1d02ad769bd4c5235a91acc2da91ebb"
-  integrity sha512-zG/p9Sb78TWxIv68VvUSDcGIeQ/fbw45BkSgUEGmiSO7wxO8uJbz+uMD+hR/N7qZQp/entCSCMfbyueLZEW+Pg==
+"@jcoreio/iron-pi-ipc-codec@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@jcoreio/iron-pi-ipc-codec/-/iron-pi-ipc-codec-4.0.0.tgz#811279d735ba26bc3aea77421e1e48c26b90018d"
+  integrity sha512-pnIf1lCrPHmavDb4ks0KypukW7pDbL7KIyiF3x27ejP7QMiy9+JplsHfU1Lv/ctCxb7hBH6YQdIOtHhluyLKFg==
   dependencies:
     protobufjs "^6.8.8"
 
