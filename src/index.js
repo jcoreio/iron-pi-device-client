@@ -3,7 +3,7 @@
 import logger from 'log4jcore'
 import EventEmitter from '@jcoreio/typed-event-emitter'
 import {MessageClient as IPCMessageClient} from 'socket-ipc'
-import {VError} from 'verror'
+import VError from 'verror'
 import IronPiIPCCodec, {UNIX_SOCKET_PATH} from '@jcoreio/iron-pi-ipc-codec'
 import type {DeviceInputStates, HardwareInfo, MessageFromDriver, SetLEDs, SetOutputs} from '@jcoreio/iron-pi-ipc-codec'
 
