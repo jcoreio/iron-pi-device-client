@@ -20,6 +20,16 @@ const client = new IronPiDeviceClient()
 client.start()
 ```
 
+#### Overriding the default socket path
+
+By default, the client connects to a UNIX socket at `/tmp/socket-iron-pi`. If you're running
+in a container and the socket is mapped to a different location, use the optional `unixSocketPath`
+parameter to specify the path to the socket:
+
+```js
+const client = new IronPiDeviceClient({ unixSocketPath: '/volume/socket-iron-pi' })
+```
+
 #### Getting detected hardware
 
 ```js

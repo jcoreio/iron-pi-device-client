@@ -27,9 +27,12 @@ export class IronPiDeviceClient extends EventEmitter<IronPiDeviceClientEmittedEv
   _ipcClient: Object
   _hardwareInfo: ?HardwareInfo
 
-  constructor() {
+  /**
+   * @param unixSocketPath Optional override of default UNIX socket path, which is '/tmp/socket-iron-pi'.
+   */
+  constructor({ unixSocketPath }: { unixSocketPath?: ?string }) {
     super()
-    const ipcClient = this._ipcClient = new IPCMessageClient(UNIX_SOCKET_PATH, { binary: true })
+    const ipcClient = this._ipcClient = new IPCMessageClient(unixSocketPath || UNIX_SOCKET_PATH, { binary: true })
     ipcClient.on('message', this._onIPCMessage)
     ipcClient.on('error', (err: any) => this.emit('error', new VError(err, 'SPIHubClient socket error')))
   }
