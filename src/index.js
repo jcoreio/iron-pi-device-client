@@ -20,6 +20,8 @@ export type IronPiDeviceClientEmittedEvents = {
   deviceInputStates: [DeviceInputStates],
   devicesDetected: [HardwareInfo],
   error: [Error],
+  connection: [], // indicates a new connection to the UNIX socket used to communicate with the driver
+  close: [], // indicates closing the UNIX socket used to communicate with the driver
 }
 
 export class IronPiDeviceClient extends EventEmitter<IronPiDeviceClientEmittedEvents> {
@@ -34,7 +36,9 @@ export class IronPiDeviceClient extends EventEmitter<IronPiDeviceClientEmittedEv
     super()
     const ipcClient = this._ipcClient = new IPCMessageClient(unixSocketPath || UNIX_SOCKET_PATH, { binary: true })
     ipcClient.on('message', this._onIPCMessage)
-    ipcClient.on('error', (err: any) => this.emit('error', new VError(err, 'SPIHubClient socket error')))
+    ipcClient.on('error', (err: any) => this.emit('error', new VError(err, 'IronPiDeviceClient socket error')))
+    ipcClient.on('connection', () => this.emit('connection'))
+    ipcClient.on('close', () => this.emit('close'))
   }
 
   start() {

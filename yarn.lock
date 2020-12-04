@@ -7246,10 +7246,10 @@ snapdragon@^0.8.1:
     source-map-resolve "^0.5.0"
     use "^3.1.0"
 
-socket-ipc@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/socket-ipc/-/socket-ipc-1.0.0.tgz#155df3307ff13f96d742c0c59b270071cd3a4c3a"
-  integrity sha1-FV3zMH/xP5bXQsDFmycAcc06TDo=
+socket-ipc@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/socket-ipc/-/socket-ipc-1.0.2.tgz#e429bd572fe9a4f12f4ad2afb0389e07d22af4a2"
+  integrity sha512-q/IOj6nhoxPQks0ETAG0ONlPsqKCJ7fLXLtNjo3xQ4VRhI4B3jz1DzzCjSY9vHtMH/82uRmEWc6aYoT88W8EBg==
 
 socks-proxy-agent@^4.0.0:
   version "4.0.2"

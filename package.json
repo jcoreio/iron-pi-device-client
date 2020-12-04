@@ -103,7 +103,7 @@
     "@jcoreio/iron-pi-ipc-codec": "^4.0.0",
     "@jcoreio/typed-event-emitter": "^1.0.0",
     "log4jcore": "^2.0.3",
-    "socket-ipc": "^1.0.0",
+    "socket-ipc": "^1.0.2",
     "verror": "^1.10.0"
   },
   "publishConfig": {
